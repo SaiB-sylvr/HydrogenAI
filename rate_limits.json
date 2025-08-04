@@ -1,0 +1,10 @@
+{
+  "groq": {
+    "daily_used": 1,
+    "minute_used": 1,
+    "last_reset": "2025-08-04T02:16:41.439545",
+    "minute_reset": "2025-08-04T02:16:41.439547",
+    "error_count": 0,
+    "last_error": null
+  }
+}

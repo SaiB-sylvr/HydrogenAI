@@ -1,0 +1,55 @@
+name: schema_discovery
+version: 1.0.0
+description: Agents for discovering database schema
+
+agents:
+  - name: collection_inspector
+    role: Collection Inspector
+    goal: List all collections in the database
+    backstory: A meticulous inspector that finds every collection
+    tools:
+      - mongodb_list_collections
+    
+  - name: schema_profiler
+    role: Schema Profiler
+    goal: Sample documents and profile the schema for each collection
+    backstory: A data scientist who understands data structures
+    tools:
+      - mongodb_sample_documents
+      
+  - name: relationship_mapper
+    role: Relationship Mapper
+    goal: Analyze schemas to find foreign key relationships
+    backstory: A data architect who uncovers hidden connections
+    tools:
+      - mongodb_get_indexes
+      
+  - name: schema_documenter
+    role: Schema Documenter
+    goal: Compile all schema information into a catalog
+    backstory: A technical writer who creates clear documentation
+    tools: []
+
+tasks:
+  - name: list_collections
+    agent: collection_inspector
+    description: Find all collections in the database
+    expected_output: List of collection names
+    
+  - name: profile_schemas
+    agent: schema_profiler
+    description: Profile schema for each collection
+    dependencies: [list_collections]
+    expected_output: Schema information for each collection
+    
+  - name: map_relationships
+    agent: relationship_mapper
+    description: Find relationships between collections
+    dependencies: [profile_schemas]
+    expected_output: List of relationships
+    
+  - name: create_catalog
+    agent: schema_documenter
+    description: Create final schema catalog
+    dependencies: [profile_schemas, map_relationships]
+    expected_output: Complete schema catalog in JSON

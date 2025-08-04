@@ -1,0 +1,46 @@
+tools:
+  - name: rag_search
+    plugin: rag
+    description: Search documents using semantic search
+    parameters:
+      - name: query
+        type: string
+        required: true
+        description: Search query
+      - name: filters
+        type: object
+        required: false
+        description: Metadata filters
+      - name: top_k
+        type: integer
+        required: false
+        default: 10
+        description: Number of results
+        
+  - name: rag_embed
+    plugin: rag
+    description: Embed documents for semantic search
+    parameters:
+      - name: documents
+        type: array
+        required: true
+        description: Documents to embed
+      - name: batch_size
+        type: integer
+        required: false
+        default: 100
+        
+  - name: rerank_documents
+    plugin: rag
+    description: Rerank search results
+    parameters:
+      - name: query
+        type: string
+        required: true
+      - name: documents
+        type: array
+        required: true
+      - name: top_k
+        type: integer
+        required: false
+        default: 5

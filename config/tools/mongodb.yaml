@@ -1,0 +1,62 @@
+tools:
+  - name: mongodb_find
+    plugin: mongodb
+    description: Find documents in MongoDB
+    parameters:
+      - name: collection
+        type: string
+        required: true
+        description: Collection name
+      - name: filter
+        type: object
+        required: false
+        default: {}
+        description: Query filter
+      - name: projection
+        type: object
+        required: false
+        description: Fields to return
+      - name: limit
+        type: integer
+        required: false
+        default: 10
+        description: Maximum documents to return
+        
+  - name: mongodb_aggregate
+    plugin: mongodb
+    description: Execute aggregation pipeline
+    parameters:
+      - name: collection
+        type: string
+        required: true
+      - name: pipeline
+        type: array
+        required: true
+        description: Aggregation pipeline stages
+        
+  - name: mongodb_count
+    plugin: mongodb
+    description: Count documents
+    parameters:
+      - name: collection
+        type: string
+        required: true
+      - name: filter
+        type: object
+        required: false
+        default: {}
+        
+  - name: mongodb_distinct
+    plugin: mongodb
+    description: Get distinct values
+    parameters:
+      - name: collection
+        type: string
+        required: true
+      - name: field
+        type: string
+        required: true
+      - name: filter
+        type: object
+        required: false
+        default: {}

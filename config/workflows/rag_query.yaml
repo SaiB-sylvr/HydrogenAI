@@ -1,0 +1,46 @@
+name: rag_query
+version: 1.0.0
+description: Workflow for RAG-based queries
+
+steps:
+  - name: classify_rag_query
+    type: tool
+    tool: classify_query_intent
+    params:
+      query: $context.query
+    critical: true
+    
+  - name: search_documents
+    type: tool
+    tool: rag_search
+    params:
+      query: $context.query
+      filters: $steps.classify_rag_query.filters
+      top_k: 10
+    critical: true
+    
+  - name: rerank_results
+    type: tool
+    tool: rerank_documents
+    params:
+      query: $context.query
+      documents: $steps.search_documents.results
+      top_k: 5
+    critical: false
+    
+  - name: generate_answer
+    type: agent
+    agent: execution.insight_generator
+    inputs:
+      query: $context.query
+      context: $steps.rerank_results.documents
+      task_description: Generate a comprehensive answer based on the retrieved documents
+    critical: true
+    
+  - name: add_citations
+    type: tool
+    tool: add_source_citations
+    params:
+      answer: $steps.generate_answer.result
+      sources: $steps.rerank_results.documents
+    critical: false
