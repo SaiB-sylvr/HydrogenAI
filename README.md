@@ -129,17 +129,6 @@ python tests/test_mcp_rag.py
 - **Tool Availability**: 21 total tools (15 MCP + 6 RAG)
 - **Classification Accuracy**: 5/5 query types working
 
-## 🧪 **Testing**
-
-```bash
-# Run all tests
-python tests/test_improvements.py
-
-# Specific test suites
-python tests/test_integration.py      # End-to-end integration
-python tests/test_mcp_rag.py         # MCP and RAG functionality
-python tests/test_system.py          # System components
-```
 
 **Current Test Status**: ✅ **6/6 Tests Passing**
 
@@ -163,32 +152,5 @@ python tests/test_system.py          # System components
 
 **Overall**: 🚀 **95% Production Ready**
 
-## 📚 **Documentation**
-
-- [`docs/`](./docs/) - Complete documentation
-- [`tests/`](./tests/) - Test suites and examples
-- [`config/`](./config/) - Configuration templates
-- [API Documentation](./docs/api.md) - REST API reference
-
-## 🤝 **Contributing**
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 **License**
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🆘 **Support**
-
-- 📧 Email: support@hydrogenai.com
-- 💬 Discord: [HydrogenAI Community](https://discord.gg/hydrogenai)
-- 📖 Docs: [Documentation Portal](./docs/)
-- 🐛 Issues: [GitHub Issues](https://github.com/your-username/HydrogenAI/issues)
-
 ---
 
-**Built with ❤️ for the AI community**
