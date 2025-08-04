@@ -1,0 +1,56 @@
+# Core FastAPI and async dependencies - PINNED VERSIONS
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+pydantic-settings==2.1.0
+python-dotenv==1.0.0
+
+# Async and networking - STABLE VERSIONS
+httpx==0.25.2
+aiofiles==23.2.1
+websockets==12.0
+
+# Data handling - PINNED
+pyyaml==6.0.1
+python-json-logger==2.0.7
+
+# Redis for state management - STABLE VERSION
+redis[hiredis]==5.0.1
+
+# MongoDB support - COMPATIBLE VERSIONS
+pymongo==4.6.0
+motor==3.3.2
+
+# CRITICAL DEPENDENCIES - PINNED TO STABLE VERSIONS
+langgraph==0.0.40
+nats-py==2.6.0
+
+# AI/LLM dependencies - PINNED TO AVOID CONFLICTS
+langchain==0.1.0
+langchain-openai==0.0.5
+langchain-community==0.0.10
+langsmith==0.0.83
+openai==1.12.0
+
+# For resilience and utilities - STABLE
+tenacity==8.2.3
+cachetools==5.3.2
+
+# System monitoring and performance - ADDED FOR ENHANCED MONITORING
+psutil==5.9.6
+prometheus-client==0.19.0
+
+# Additional dependencies for proper functionality - PINNED
+typing-extensions==4.8.0
+annotated-types==0.6.0
+
+# Enhanced observability
+structlog==23.2.0
+rich==13.7.0
+
+# Resource management
+weakref-utils==1.0.0
+gc-utils==1.2.0
+
+# Enhanced error handling
+better-exceptions==0.3.3
