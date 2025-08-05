@@ -10,7 +10,7 @@ from datetime import timedelta
 import uuid
 
 # MongoDB connection
-MONGO_URI = "mongodb+srv://sylvr:1v5o3k8t2P7Ys9Yf@sylvr.3sznr.mongodb.net/HydrogenAI?retryWrites=true&w=majority"
+MONGO_URI = "MONGO_URI"
 
 def seed_user_activity_data():
     """Seed realistic user activity data"""
@@ -204,3 +204,4 @@ if __name__ == "__main__":
     seed_content_data()
     seed_marketing_campaigns()
     print("🎉 Seeding complete! Ready for deep behavioral analysis testing.")
+
