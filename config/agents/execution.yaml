@@ -1,0 +1,49 @@
+name: execution
+version: 1.0.0
+description: Agents for executing queries and generating insights
+
+agents:
+  - name: execution_manager
+    role: Execution Manager
+    goal: Execute queries and handle results
+    backstory: An operations expert who ensures smooth execution
+    tools:
+      - execute_mongodb_query
+      - execute_rag_query
+      - monitor_execution
+    
+  - name: result_processor
+    role: Result Processor
+    goal: Process and format query results
+    backstory: A data analyst who transforms raw data into insights
+    tools:
+      - format_results
+      - calculate_statistics
+      - detect_patterns
+    
+  - name: insight_generator
+    role: Insight Generator
+    goal: Generate meaningful insights from query results
+    backstory: A business analyst who tells stories with data
+    tools:
+      - generate_summary
+      - create_visualizations
+      - identify_trends
+
+tasks:
+  - name: execute_query
+    agent: execution_manager
+    description: Execute the prepared query
+    expected_output: Raw query results
+    
+  - name: process_results
+    agent: result_processor
+    description: Process and format the raw results
+    dependencies: [execute_query]
+    expected_output: Formatted and structured results
+    
+  - name: generate_insights
+    agent: insight_generator
+    description: Generate insights and recommendations
+    dependencies: [process_results]
+    expected_output: Human-readable insights and summary

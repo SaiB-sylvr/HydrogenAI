@@ -1,0 +1,23 @@
+name: system
+version: 1.0.0
+description: System monitoring and health check tools
+class: SystemPlugin
+author: HydrogenAI
+category: system
+
+tools:
+  - name: health_check
+    description: Check system health and resource usage
+    type: monitoring
+  - name: system_info  
+    description: Get detailed system information
+    type: information
+
+configuration:
+  enabled: true
+  auto_start: true
+  monitoring_interval: 300  # 5 minutes
+  
+requirements:
+  - psutil
+  - platform

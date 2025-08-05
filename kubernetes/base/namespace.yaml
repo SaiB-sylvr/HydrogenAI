@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: hydrogen-ai
+  labels:
+    name: hydrogen-ai
+    app.kubernetes.io/name: hydrogen-ai
+    app.kubernetes.io/part-of: hydrogen-platform

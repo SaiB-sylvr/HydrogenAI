@@ -1,0 +1,30 @@
+name: mongodb
+version: 1.0.0
+class: MongoDBPlugin
+description: MongoDB tools for database operations
+author: Hydrogen AI Team
+
+configuration:
+  default_database: ${MONGO_DB_NAME}
+  connection_string: ${MONGO_URI}
+  
+  # Optional: Multi-cluster configuration
+  # clusters:
+  #   - name: default
+  #     env_var: MONGO_URI
+  #   - name: analytics
+  #     env_var: MONGO_URI_ANALYTICS
+  
+tools:
+  - name: mongodb_find
+    description: Find documents in MongoDB
+  - name: mongodb_count
+    description: Count documents in MongoDB
+  - name: mongodb_aggregate
+    description: Run aggregation pipeline
+  - name: mongodb_list_collections
+    description: List all collections
+  - name: mongodb_sample_documents
+    description: Sample documents for schema discovery
+  - name: mongodb_get_indexes
+    description: Get collection indexes

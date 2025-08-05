@@ -1,0 +1,17 @@
+name: schema_discovery
+version: 1.0.0
+description: Workflow for discovering database schema
+
+steps:
+  - name: discover_collections
+    type: tool
+    tool: mongodb_list_collections
+    
+  - name: analyze_schema
+    type: agent
+    agent: schema_profiler
+    task: Analyze the schema of discovered collections
+    
+  - name: cache_schema
+    type: custom
+    action: cache_schema_results

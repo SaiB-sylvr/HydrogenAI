@@ -1,0 +1,53 @@
+name: complex_aggregation
+version: 1.0.0
+description: Optimized workflow for complex aggregation queries
+
+steps:
+  - name: load_schema
+    type: tool
+    tool: mongodb_list_collections
+    params: 
+      include_stats: true
+    critical: false
+    
+  - name: plan_query
+    type: agent
+    agent: query_planner
+    inputs:
+      query: $context.query
+      schema: $steps.load_schema
+    critical: false
+    fallback:
+      type: tool
+      tool: mongodb_count
+      params:
+        collection: "users"
+    
+  - name: execute_operation
+    type: conditional
+    condition: $steps.plan_query.success
+    on_true:
+      type: tool
+      tool: mongodb_aggregate
+      params:
+        collection: $steps.plan_query.collection
+        pipeline: $steps.plan_query.pipeline
+    on_false:
+      type: tool
+      tool: mongodb_count
+      params:
+        collection: "users"
+        filter: {}
+    critical: true
+    
+  - name: generate_insights
+    type: agent
+    agent: insight_generator
+    inputs:
+      query: $context.query
+      results: $steps.execute_operation
+    critical: false
+    fallback:
+      type: simple_response
+      template: "Found {count} records in the database"
+      data: $steps.execute_operation

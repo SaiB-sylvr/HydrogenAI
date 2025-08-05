@@ -1,0 +1,52 @@
+# Core FastAPI and async dependencies - PINNED VERSIONS
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings
+python-dotenv
+
+# Database and networking - STABLE VERSIONS
+pymongo
+motor
+httpx
+
+# System monitoring and performance - STABLE
+psutil
+prometheus-client
+
+# Plugin dependencies - COMPATIBLE VERSIONS
+sentence-transformers
+qdrant-client
+langchain
+langchain-community
+
+# Text processing and data handling - PINNED
+pyyaml
+python-json-logger
+
+# Utilities and resilience - STABLE
+tenacity
+cachetools
+typing-extensions
+annotated-types
+
+# For async operations - STABLE
+aiofiles
+websockets
+
+# Redis for caching - STABLE VERSION
+redis[hiredis]
+
+# Security and validation - ADDED FOR ENHANCED SECURITY
+jsonschema
+marshmallow
+cerberus
+
+# Enhanced observability
+structlog
+rich
+
+
+
+# Enhanced error handling
+better-exceptions
